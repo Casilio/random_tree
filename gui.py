@@ -19,9 +19,11 @@ class MainFrame(wx.Frame):
         self.generateBtn.Bind(wx.EVT_BUTTON, self.generate)
 
         hbox = wx.BoxSizer(wx.HORIZONTAL)
+        hbox.AddStretchSpacer(100)
         hbox.Add(self.seedInput)
         hbox.Add(self.generateBtn)
         hbox.Add(self.randomizeBtn)
+        hbox.AddStretchSpacer(100)
     
         self.panel2.SetSizer(hbox)
 
@@ -44,6 +46,7 @@ class MainFrame(wx.Frame):
 class MyApp(wx.App):
     def OnInit(self):
         frame = MainFrame(None, -1, 'Random Tree')
+        frame.SetMinClientSize(wx.Size(300, 400))
         frame.Center()
         frame.Show(True)
         return True
